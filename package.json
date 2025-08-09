@@ -1,0 +1,24 @@
+{
+  "name": "news-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DivayJainDJ/News-Website.git"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DivayJainDJ/News-Website/issues"
+  },
+  "homepage": "https://github.com/DivayJainDJ/News-Website#readme",
+  "description": "",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}
