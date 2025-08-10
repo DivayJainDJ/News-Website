@@ -13,7 +13,8 @@ searchBtn.addEventListener('click', () => {
 
   container.innerHTML = 'Searching...';
 
-  fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(keyword)}&apiKey=${apiKey}`)
+  fetch(`/.netlify/functions/fetchNews?query=${encodeURIComponent(keyword)}`)
+
     .then(response => response.json())
     .then(data => {
       container.innerHTML = '';
