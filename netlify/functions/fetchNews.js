@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
-exports.handler = async function (event, context) {
-  const API_KEY = process.env.NEWS_API_KEY; // Stored in Netlify settings
+exports.handler = async function(event, context) {
+  const API_KEY = process.env.NEWS_API_KEY;
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${API_KEY}`;
 
   try {
@@ -9,9 +9,12 @@ exports.handler = async function (event, context) {
     const data = await response.json();
     return {
       statusCode: 200,
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     };
   } catch (error) {
-    return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message })
+    };
   }
 };
