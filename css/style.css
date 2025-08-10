@@ -35,6 +35,7 @@ header h1 {
   font-weight: bold;
 }
 
+
 #toggle-theme {
   position: absolute;
   top: 20px;
@@ -53,6 +54,7 @@ header h1 {
 #toggle-theme:hover {
   background: #0097a7;
 }
+
 
 nav {
   background-color: #1f1f1f;
@@ -74,11 +76,13 @@ nav a:hover {
   background: #333;
 }
 
+
 main {
   margin-top: 140px;
   min-height: 500px;
   padding: 20px;
 }
+
 
 .container {
   max-width: 1200px;
@@ -92,6 +96,7 @@ main {
   color: #00bcd4;
   font-size: 28px;
 }
+
 
 .search-box {
   text-align: center;
@@ -114,6 +119,7 @@ main {
   color: #ccc;
 }
 
+
 .btn, button, .read-more, .save-btn, .remove-btn {
   padding: 12px 20px;
   font-size: 16px;
@@ -124,12 +130,21 @@ main {
   cursor: pointer;
   font-weight: bold;
   margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
 }
 
-.btn:hover, button:hover, .read-more:hover {
+
+.btn:hover, button:hover {
   background: #0097a7;
 }
 
+.read-more:hover {
+  background: #0097a7;
+  color: white;
+  text-decoration: none;
+}
 
 .save-btn {
   background: #27ae60;
@@ -146,6 +161,7 @@ main {
 .remove-btn:hover {
   background: #c0392b;
 }
+
 
 #news-container {
   display: grid;
@@ -209,7 +225,6 @@ main {
   border: 2px dashed #00bcd4;
   margin: 20px 0;
 }
-
 
 footer {
   background: #333;
@@ -323,6 +338,7 @@ body.light-mode footer .social-links a:hover {
   background: white;
 }
 
+
 @media (max-width: 768px) {
   header {
     padding: 15px;
@@ -363,6 +379,7 @@ body.light-mode footer .social-links a:hover {
     padding: 10px;
   }
 }
+
 
 @media (max-width: 480px) {
   .news-card {
