@@ -1,13 +1,13 @@
 const container = document.getElementById('news-container');
 
-// Step 1: Load saved articles from localStorage
+
 let saved = JSON.parse(localStorage.getItem('savedNews')) || [];
 
-// Step 2: If no saved articles, show message
+
 if (saved.length === 0) {
   container.innerHTML = '<p>No saved articles yet.</p>';
 } else {
-  container.innerHTML = ''; // clear loading
+  container.innerHTML = ''; 
 
   saved.forEach((article, index) => {
     const card = document.createElement('div');
@@ -23,10 +23,9 @@ if (saved.length === 0) {
 
     const removeBtn = card.querySelector('.remove-btn');
     removeBtn.addEventListener('click', () => {
-      // Remove this article from saved array
       saved.splice(index, 1);
       localStorage.setItem('savedNews', JSON.stringify(saved));
-      location.reload(); // refresh the page to show updated list
+      card.remove();  
     });
 
     container.appendChild(card);
