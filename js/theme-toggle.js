@@ -1,31 +1,45 @@
-window.addEventListener('DOMContentLoaded', () => {
-    console.log('theme-toggle.js loaded');
-    const toggleBtn = document.getElementById('toggle-theme');
+
+window.addEventListener('DOMContentLoaded', function() {
+    console.log('Theme toggle loaded');
     
-    if (!toggleBtn) {
-      console.log('Toggle button NOT found');
+   
+    const themeButton = document.getElementById('toggle-theme');
+    
+    
+    if (!themeButton) {
+      console.log('Theme button not found');
       return;
     }
-    console.log('Toggle button found');
-  
     
+   
     const savedTheme = localStorage.getItem('theme');
+    
+   
     if (savedTheme === 'light') {
       document.body.classList.add('light-mode');
+      themeButton.textContent = '☀️'; 
     } else {
       document.body.classList.remove('light-mode');
+      themeButton.textContent = '🌙';
     }
-  
-    toggleBtn.addEventListener('click', () => {
+    
+    
+    themeButton.addEventListener('click', function() {
+      
+     
       document.body.classList.toggle('light-mode');
-  
+      
+     
       if (document.body.classList.contains('light-mode')) {
+        
         localStorage.setItem('theme', 'light');
-        console.log('Switched to light mode');
+        themeButton.textContent = '☀️';
+        console.log('Changed to light mode');
       } else {
+        
         localStorage.setItem('theme', 'dark');
-        console.log('Switched to dark mode');
+        themeButton.textContent = '🌙';
+        console.log('Changed to dark mode');
       }
     });
   });
-  

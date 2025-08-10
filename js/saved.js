@@ -1,33 +1,80 @@
+
 const container = document.getElementById('news-container');
 
 
-let saved = JSON.parse(localStorage.getItem('savedNews')) || [];
+function createSavedCard(article, index) {
+  const card = document.createElement('div');
+  card.className = 'news-card';
+
+  card.innerHTML = `
+    <img src="${article.urlToImage || ''}" alt="news image">
+    <h3>${article.title}</h3>
+    <p>${article.description || 'No description available.'}</p>
+    <a href="${article.url}" target="_blank" class="read-more">Read More</a>
+    <button class="remove-btn">Remove</button>
+  `;
+  
+  return card;
+}
 
 
-if (saved.length === 0) {
-  container.innerHTML = '<p>No saved articles yet.</p>';
-} else {
-  container.innerHTML = ''; 
+function removeArticle(index , cardElement) {
+ 
+  let savedArticles = JSON.parse(localStorage.getItem('savedNews')) || [];
+  
+  
+  savedArticles.splice(index, 1);
 
-  saved.forEach((article, index) => {
-    const card = document.createElement('div');
-    card.className = 'news-card';
+  localStorage.setItem('savedNews', JSON.stringify(savedArticles));
+  
+ 
+  cardElement.remove();
+  
 
-    card.innerHTML = `
-      <img src="${article.urlToImage || ''}" alt="news image">
-      <h3>${article.title}</h3>
-      <p>${article.description || 'No description available.'}</p>
-      <a href="${article.url}" target="_blank">Read more</a>
-      <button class="remove-btn">Remove</button>
-    `;
+  if (savedArticles.length === 0) {
+    container.innerHTML = '<div class="loading">No saved articles.</div>';
+  }
+  
+  console.log('Article removed');
+}
 
-    const removeBtn = card.querySelector('.remove-btn');
-    removeBtn.addEventListener('click', () => {
-      saved.splice(index, 1);
-      localStorage.setItem('savedNews', JSON.stringify(saved));
-      card.remove();  
+
+function loadSavedArticles() {
+
+  container.innerHTML = '<div class="loading">Loading saved articles...</div>';
+  
+ 
+  let savedArticles = JSON.parse(localStorage.getItem('savedNews')) || [];
+
+  container.innerHTML = '';
+
+ 
+  if (savedArticles.length === 0) {
+    container.innerHTML = '<div class="loading">No saved articles yet.</div>';
+    return;
+  }
+
+  
+  for (let i = 0; i < savedArticles.length; i++) {
+    const article = savedArticles[i];
+    const card = createSavedCard(article, i);
+    
+  
+    const removeButton = card.querySelector('.remove-btn');
+    removeButton.addEventListener('click', function() {
+      
+   
+      const confirmRemove = confirm('Are you sure you want to remove this article?');
+      
+      if (confirmRemove) {
+        removeArticle(i, card);
+      }
     });
 
+   
     container.appendChild(card);
-  });
+  }
 }
+
+
+loadSavedArticles();
