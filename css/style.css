@@ -1,25 +1,26 @@
 body {
-    background-color: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  nav {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s; /* Add transition here */
+}
+nav {
     background-color: #1f1f1f;
     padding: 15px;
     display: flex;
     justify-content: center;
     gap: 20px;
   }
-  header {
+header {
     background: #333;
     color: white;
     padding: 1em;
     text-align: center;
   }
   
-  nav a {
+nav a {
     color: white;
     margin: 0 10px;
     text-decoration: none;
@@ -112,4 +113,46 @@ body {
   .remove-btn:hover {
     background-color: #c0392b;
   }
-  
+
+#toggle-theme {
+  margin: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
+
+body.light-mode nav {
+  background-color: #ddd;
+}
+
+body.light-mode header {
+  background: #eee;
+  color: black;
+}
+
+body.light-mode nav a {
+  color: black;
+}
+
+body.light-mode nav a:hover {
+  color: #007bff;
+}
+
+body.light-mode .news-card {
+  background: #f9f9f9;
+  color: black;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+body.light-mode .news-card a {
+  color: blue;
+}
+
+body.light-mode #toggle-theme {
+  background-color: #ddd;
+  color: black;
+}

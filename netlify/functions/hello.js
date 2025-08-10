@@ -4,5 +4,3 @@ exports.handler = async () => {
       body: 'Hello from Netlify Functions!'
     };
   };
-
-  

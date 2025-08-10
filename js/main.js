@@ -2,7 +2,6 @@ const container = document.getElementById('news-container');
 const apiKey = '3aa99be2ffcc4c5e9e31ae85b2a989e6';
 
 fetch('/.netlify/functions/fetchNews')
-
   .then(response => response.json())
   .then(data => {
     container.innerHTML = '';
