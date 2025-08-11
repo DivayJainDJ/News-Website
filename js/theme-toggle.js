@@ -1,8 +1,7 @@
-
 window.addEventListener('DOMContentLoaded', function() {
     console.log('Theme toggle loaded');
     
-   
+    
     const themeButton = document.getElementById('toggle-theme');
     
     
@@ -11,10 +10,29 @@ window.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
-   
-    const savedTheme = localStorage.getItem('theme');
     
-   
+    function getSavedTheme() {
+      try {
+        return localStorage.getItem('newstheme') || 'dark';
+      } catch (error) {
+        console.log('LocalStorage not available, using default theme');
+        return 'dark';
+      }
+    }
+    
+     
+    function saveTheme(theme) {
+      try {
+        localStorage.setItem('newstheme', theme);
+      } catch (error) {
+        console.log('Could not save theme');
+      }
+    }
+    
+    
+    const savedTheme = getSavedTheme();
+    
+    
     if (savedTheme === 'light') {
       document.body.classList.add('light-mode');
       themeButton.textContent = '☀️'; 
@@ -23,23 +41,32 @@ window.addEventListener('DOMContentLoaded', function() {
       themeButton.textContent = '🌙';
     }
     
-    
+   
     themeButton.addEventListener('click', function() {
+      console.log('Theme button clicked');
       
      
       document.body.classList.toggle('light-mode');
       
      
       if (document.body.classList.contains('light-mode')) {
-        
-        localStorage.setItem('theme', 'light');
+    
+        saveTheme('light');
         themeButton.textContent = '☀️';
         console.log('Changed to light mode');
       } else {
-        
-        localStorage.setItem('theme', 'dark');
+  
+        saveTheme('dark');
         themeButton.textContent = '🌙';
         console.log('Changed to dark mode');
       }
+    });
+    
+  
+    themeButton.addEventListener('touchstart', function(e) {
+   
+      e.preventDefault();
+     
+      themeButton.click();
     });
   });

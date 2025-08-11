@@ -1,18 +1,18 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 body {
   background-color: #121212;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif; 
   line-height: 1.6;
 }
-
 
 header {
   position: fixed;
@@ -28,13 +28,36 @@ header {
 }
 
 
-header h1 {
-  font-size: 32px;
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   margin-bottom: 10px;
-  color: #00bcd4;
-  font-weight: bold;
 }
 
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a365d, #2d5a87);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+header h1 {
+  font-size: 32px;
+  margin: 0;
+  color: #00bcd4;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif; 
+}
 
 #toggle-theme {
   position: absolute;
@@ -42,19 +65,20 @@ header h1 {
   right: 20px;
   background: #00bcd4;
   border: none;
-  border-radius: 20px;
-  padding: 8px 12px;
+  border-radius: 50%;
+  padding: 10px;
   cursor: pointer;
   color: white;
   font-size: 18px;
   width: 50px;
-  height: 40px;
+  height: 50px;
+  transition: all 0.3s ease;
 }
 
 #toggle-theme:hover {
   background: #0097a7;
+  transform: translateY(-2px);
 }
-
 
 nav {
   background-color: #1f1f1f;
@@ -65,24 +89,33 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 20px;
+  font-weight: 500;
+  padding: 12px 24px;
+  margin: 0 8px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
 nav a:hover {
   color: #00bcd4;
   background: #333;
+  border-color: #00bcd4;
 }
 
+
+nav a.active {
+  color: #00bcd4;
+  background: #333;
+  border-color: #00bcd4;
+  font-weight: 600;
+}
 
 main {
   margin-top: 140px;
   min-height: 500px;
   padding: 20px;
 }
-
 
 .container {
   max-width: 1200px;
@@ -95,8 +128,8 @@ main {
   margin-bottom: 30px;
   color: #00bcd4;
   font-size: 28px;
+  font-family: 'Playfair Display', serif; 
 }
-
 
 .search-box {
   text-align: center;
@@ -104,13 +137,13 @@ main {
 }
 
 .search-box input {
-  padding: 12px 20px;
+  padding: 15px 25px;
   font-size: 16px;
   border-radius: 25px;
   border: 2px solid #00bcd4;
   background: #333;
   color: white;
-  width: 300px;
+  width: 350px;
   max-width: 90%;
   margin-right: 10px;
 }
@@ -119,31 +152,38 @@ main {
   color: #ccc;
 }
 
-
 .btn, button, .read-more, .save-btn, .remove-btn {
-  padding: 12px 20px;
+  padding: 15px 25px; 
   font-size: 16px;
   border-radius: 25px;
   border: none;
   background: #00bcd4;
   color: white;
   cursor: pointer;
-  font-weight: bold;
-  margin: 5px;
+  font-weight: 600;
+  margin: 8px;
   text-decoration: none;
   display: inline-block;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  min-width: 120px; 
 }
-
 
 .btn:hover, button:hover {
   background: #0097a7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,188,212,0.4);
+}
+
+.read-more {
+  background: #00bcd4;
 }
 
 .read-more:hover {
   background: #0097a7;
   color: white;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,188,212,0.4);
 }
 
 .save-btn {
@@ -152,6 +192,8 @@ main {
 
 .save-btn:hover {
   background: #2ecc71;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(39,174,96,0.4);
 }
 
 .remove-btn {
@@ -160,56 +202,62 @@ main {
 
 .remove-btn:hover {
   background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(231,76,60,0.4);
 }
-
 
 #news-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
   margin-bottom: 50px;
 }
 
 .news-card {
   background: #1e1e1e;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
   border: 1px solid #333;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .news-card:hover {
-  box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transform: translateY(-5px);
 }
 
 .news-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
+}
+
+.news-card-content {
+  padding: 20px;
 }
 
 .news-card h3 {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #00bcd4;
+  font-family: 'Playfair Display', serif; 
+  line-height: 1.4;
 }
 
 .news-card p {
   font-size: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #ccc;
+  line-height: 1.6;
 }
 
-.news-card a {
-  color: #00bcd4;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.news-card a:hover {
-  color: #ff6b6b;
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .loading, .search-prompt {
@@ -221,7 +269,7 @@ main {
 
 .search-prompt {
   background: #1f1f1f;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 2px dashed #00bcd4;
   margin: 20px 0;
 }
@@ -230,7 +278,7 @@ footer {
   background: #333;
   color: white;
   text-align: center;
-  padding: 30px 20px;
+  padding: 40px 20px;
   margin-top: 50px;
 }
 
@@ -238,6 +286,7 @@ footer h3 {
   margin-bottom: 15px;
   color: #00bcd4;
   font-size: 24px;
+  font-family: 'Playfair Display', serif; 
 }
 
 footer .social-links {
@@ -248,13 +297,15 @@ footer .social-links a {
   color: white;
   text-decoration: none;
   margin: 0 15px;
-  padding: 8px 12px;
-  border-radius: 5px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 footer .social-links a:hover {
   color: #00bcd4;
   background: #1f1f1f;
+  transform: translateY(-2px);
 }
 
 
@@ -269,6 +320,10 @@ body.light-mode header {
   border-bottom: 2px solid #00bcd4;
 }
 
+body.light-mode .logo {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+}
+
 body.light-mode nav {
   background-color: #e0e0e0;
 }
@@ -277,7 +332,8 @@ body.light-mode nav a {
   color: black;
 }
 
-body.light-mode nav a:hover {
+body.light-mode nav a:hover,
+body.light-mode nav a.active {
   color: #00bcd4;
   background: white;
 }
@@ -286,11 +342,11 @@ body.light-mode .news-card {
   background: white;
   color: black;
   border: 1px solid #ddd;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 body.light-mode .news-card:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 body.light-mode .news-card h3 {
@@ -311,7 +367,8 @@ body.light-mode .search-box input::placeholder {
   color: #999;
 }
 
-body.light-mode .loading, body.light-mode .search-prompt {
+body.light-mode .loading, 
+body.light-mode .search-prompt {
   color: #666;
 }
 
@@ -344,6 +401,17 @@ body.light-mode footer .social-links a:hover {
     padding: 15px;
   }
   
+  .logo-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
   header h1 {
     font-size: 24px;
   }
@@ -351,38 +419,43 @@ body.light-mode footer .social-links a:hover {
   #toggle-theme {
     right: 10px;
     top: 15px;
+    width: 45px;
+    height: 45px;
   }
   
   nav a {
-    padding: 8px 15px;
+    padding: 10px 15px;
     margin: 0 5px;
     font-size: 14px;
   }
   
   #news-container {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 20px;
   }
   
   .search-box input {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     margin-right: 0;
   }
   
   main {
-    margin-top: 120px;
+    margin-top: 130px;
     padding: 15px;
   }
   
   .container {
     padding: 10px;
   }
+
+  .card-actions {
+    flex-direction: column;
+  }
 }
 
-
 @media (max-width: 480px) {
-  .news-card {
+  .news-card-content {
     padding: 15px;
   }
   
@@ -391,7 +464,7 @@ body.light-mode footer .social-links a:hover {
   }
   
   footer {
-    padding: 20px 10px;
+    padding: 30px 15px;
   }
   
   footer .social-links a {
@@ -399,7 +472,8 @@ body.light-mode footer .social-links a:hover {
   }
   
   .btn, button, .read-more, .save-btn, .remove-btn {
-    padding: 10px 15px;
+    padding: 12px 20px;
     font-size: 14px;
+    min-width: 100px;
   }
 }
