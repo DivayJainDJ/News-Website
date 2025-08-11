@@ -477,3 +477,20 @@ body.light-mode footer .social-links a:hover {
     min-width: 100px;
   }
 }
+
+.signin-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #00bcd4;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.signin-btn:hover {
+  background: #0097a7;
+}
